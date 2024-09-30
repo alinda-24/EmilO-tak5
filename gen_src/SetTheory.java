@@ -16,8 +16,8 @@ public class SetTheory {
      */
     public static ArrayList<Integer> generateSet(int min, int max) {
         ArrayList<Integer> set = new ArrayList<Integer>();
-        
-        for (int i = min; i < max || i < MAX; i++) {
+
+        for (int i = min; i < max && i < MAX; i++) {
             set.add(i);
         }
 
@@ -32,7 +32,13 @@ public class SetTheory {
      * @return An ArrayList containing unique elements from both sets
      */
     public static ArrayList<Integer> union(ArrayList<Integer> a, ArrayList<Integer> b) {
-        // TODO: Implement this method.
+        for (Integer i : a) {
+            if(!a.contains(i)){
+                a.add(i);
+            }
+        }
+
+        return a;
     }
 
     /**
