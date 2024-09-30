@@ -8,8 +8,8 @@ public class Arrays {
      * @return The integer average of the array elements
      */
     public static int average(int[] array) {
-        if(array == null){
-            return 0;
+        if(array == null || array.length == 0){
+            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");
         }
         
         int sum = 0;
@@ -28,8 +28,8 @@ public class Arrays {
      * @return The average of the array elements
      */
     public static double average(double[] array) {
-        if(array == null){
-            return 0;
+        if(array == null || array.length == 0){
+            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");;
         }
 
         double sum = 0;
@@ -49,8 +49,8 @@ public class Arrays {
      * @return The smallest integer in the array or Integer.MAX_VALUE if empty
      */
     public static int smallestElement(int[] array) {
-        if(array == null){
-            return 0;
+        if(array == null || array.length == 0){
+            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");;
         }
 
         int smallestElement = array[0];
