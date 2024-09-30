@@ -15,7 +15,13 @@ public class SetTheory {
      * @return An ArrayList of integers in the specified range
      */
     public static ArrayList<Integer> generateSet(int min, int max) {
-        // TODO: Implement this method.
+        ArrayList<Integer> set = new ArrayList<Integer>();
+        
+        for (int i = min; i < max || i < MAX; i++) {
+            set.add(i);
+        }
+
+        return set;
     }
 
     /**
