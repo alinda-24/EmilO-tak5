@@ -84,14 +84,22 @@ public class Arrays {
      * @return A new array containing only even integers from the input array
      */
     public static int[] evenNumbers(int[] array) {
-        int[] evenNumbers = new int[array.length];
+        int size = 0;
+        
+        //Count the number of even number in the array
+        for (int i : array) {
+            if (i % 2 == 0){
+                ++size;
+            }
+        }
 
-        int j = 0;
+        int[] evenNumbers = new int[size];
+        int index = 0;
 
         for (int i : array) {
             if (i % 2 == 0){
-                evenNumbers[j] = i;
-                ++j;
+                evenNumbers[index] = i;
+                ++index;
             }
         }
 
