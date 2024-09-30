@@ -71,7 +71,7 @@ public class Arrays {
         int[] reversedArray = new int[array.length];
 
         for (int i = 0; i < array.length; i++) {
-            reversedArray[array.length - i] = array[i];
+            reversedArray[array.length - i - 1] = array[i];
         }
 
         return reversedArray;
@@ -84,6 +84,17 @@ public class Arrays {
      * @return A new array containing only even integers from the input array
      */
     public static int[] evenNumbers(int[] array) {
-        // TODO: Implement this method.
+        int[] evenNumbers = new int[array.length];
+
+        int j = 0;
+
+        for (int i : array) {
+            if (i % 2 == 0){
+                evenNumbers[j] = i;
+                ++j;
+            }
+        }
+
+        return evenNumbers;
     }
 }
