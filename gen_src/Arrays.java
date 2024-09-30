@@ -68,8 +68,13 @@ public class Arrays {
      * @return A new array with elements in reverse order of input array
      */
     public static int[] reverse(int[] array) {
-        int[] reversedArray;
+        int[] reversedArray = new int[array.length];
 
+        for (int i = 0; i < array.length; i++) {
+            reversedArray[array.length - i] = array[i];
+        }
+
+        return reversedArray;
     }
 
     /**
