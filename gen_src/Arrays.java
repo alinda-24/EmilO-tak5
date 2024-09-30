@@ -24,7 +24,13 @@ public class Arrays {
      * @return The average of the array elements
      */
     public static double average(double[] array) {
-        // TODO: Implement this method.
+        double sum = 0;
+
+        for (double i : array) {
+          sum += i;
+        }
+    
+        return sum / array.length;
     }
 
     /**
@@ -35,7 +41,15 @@ public class Arrays {
      * @return The smallest integer in the array or Integer.MAX_VALUE if empty
      */
     public static int smallestElement(int[] array) {
-        // TODO: Implement this method.
+        int smallestElement = array[0];
+
+        for (int i : array){
+            if(i < smallestElement){
+                smallestElement = i;
+            }
+        }
+
+        return smallestElement;
     }
 
     /**
@@ -46,7 +60,8 @@ public class Arrays {
      * @return A new array with elements in reverse order of input array
      */
     public static int[] reverse(int[] array) {
-        // TODO: Implement this method.
+        int[] reversedArray;
+        
     }
 
     /**
