@@ -9,7 +9,7 @@ public class Arrays {
      */
     public static int average(int[] array) {
         if(array == null || array.length == 0){
-            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");
+            return 0;
         }
         
         int sum = 0;
@@ -29,7 +29,7 @@ public class Arrays {
      */
     public static double average(double[] array) {
         if(array == null || array.length == 0){
-            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");;
+            return 0;
         }
 
         double sum = 0;
@@ -49,11 +49,7 @@ public class Arrays {
      * @return The smallest integer in the array or Integer.MAX_VALUE if empty
      */
     public static int smallestElement(int[] array) {
-        if(array == null || array.length == 0){
-            throw new IllegalArgumentException("Array is null or empty, cannot calculate average.");;
-        }
-
-        int smallestElement = array[0];
+        int smallestElement = Integer.MAX_VALUE;
 
         for (int i : array){
             if(i < smallestElement){
