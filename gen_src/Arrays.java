@@ -8,7 +8,13 @@ public class Arrays {
      * @return The integer average of the array elements
      */
     public static int average(int[] array) {
-        // TODO: Implement this method.
+        int sum = 0;
+
+        for (int i : array) {
+          sum += i;
+        }
+    
+        return sum / array.length;
     }
 
     /**
