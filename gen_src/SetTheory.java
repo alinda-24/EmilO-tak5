@@ -32,13 +32,16 @@ public class SetTheory {
      * @return An ArrayList containing unique elements from both sets
      */
     public static ArrayList<Integer> union(ArrayList<Integer> a, ArrayList<Integer> b) {
+        ArrayList<Integer> set = new ArrayList<Integer>();
+        
+        set.addAll(a);
         for (Integer i : a) {
-            if(!a.contains(i)){
-                a.add(i);
+            if(!b.contains(i)){
+                set.add(i);
             }
         }
 
-        return a;
+        return set;
     }
 
     /**
@@ -49,7 +52,15 @@ public class SetTheory {
      * @return An ArrayList containing elements present in both sets
      */
     public static ArrayList<Integer> intersection(ArrayList<Integer> a, ArrayList<Integer> b) {
-        // TODO: Implement this method.
+        ArrayList<Integer> set = new ArrayList<Integer>();
+
+        for (Integer i : a) {
+            if (b.contains(i)) {
+                set.add(i);
+            }
+        }
+        
+        return set;
     }
 
     /**
