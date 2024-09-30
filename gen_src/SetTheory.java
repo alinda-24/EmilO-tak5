@@ -35,11 +35,11 @@ public class SetTheory {
         ArrayList<Integer> set = new ArrayList<Integer>();
         
         set.addAll(a);
-        for (Integer i : a) {
-            if(!b.contains(i)){
+        for (Integer i : b) {
+            if(!a.contains(i)){
                 set.add(i);
             }
-        }
+        } 
 
         return set;
     }
@@ -59,7 +59,7 @@ public class SetTheory {
                 set.add(i);
             }
         }
-        
+
         return set;
     }
 
@@ -70,7 +70,11 @@ public class SetTheory {
      * @return An ArrayList representing the complement set
      */
     public static ArrayList<Integer> complement(ArrayList<Integer> a) {
-        // TODO: Implement this method.
+        ArrayList<Integer> set = generateSet(0, MAX);
+
+        set.removeAll(a);
+
+        return set;
     }
 
     /**
@@ -80,7 +84,7 @@ public class SetTheory {
      * @return The size of the set
      */
     public static int cardinality(ArrayList<Integer> a) {
-        // TODO: Implement this method.
+        return a.size();
     }
 
     /**
@@ -91,6 +95,6 @@ public class SetTheory {
      * @return The size of the union of the two sets
      */
     public static int cardinalityOfUnion(ArrayList<Integer> a, ArrayList<Integer> b) {
-        // TODO: Implement this method.
+        return union(a, b).size();
     }
 }
