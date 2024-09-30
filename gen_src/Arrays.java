@@ -8,6 +8,10 @@ public class Arrays {
      * @return The integer average of the array elements
      */
     public static int average(int[] array) {
+        if(array == null){
+            return 0;
+        }
+        
         int sum = 0;
 
         for (int i : array) {
@@ -24,6 +28,10 @@ public class Arrays {
      * @return The average of the array elements
      */
     public static double average(double[] array) {
+        if(array == null){
+            return 0;
+        }
+
         double sum = 0;
 
         for (double i : array) {
@@ -41,6 +49,10 @@ public class Arrays {
      * @return The smallest integer in the array or Integer.MAX_VALUE if empty
      */
     public static int smallestElement(int[] array) {
+        if(array == null){
+            return 0;
+        }
+
         int smallestElement = array[0];
 
         for (int i : array){
@@ -61,7 +73,7 @@ public class Arrays {
      */
     public static int[] reverse(int[] array) {
         int[] reversedArray;
-        
+
     }
 
     /**
