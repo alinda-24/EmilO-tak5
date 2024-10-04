@@ -1,153 +1,151 @@
-# Arrays and Sets: Deep Dive into Java Collections 🌟
+# Collections Tasks in Java: Understanding Arrays and ArrayLists
 
-This week's task takes a comprehensive look at Java's essential collection frameworks: Arrays and ArrayLists. You'll explore manipulating data within these foundational structures while developing a deeper understanding of loops, static methods, and set theory. 
+This week introduces Java collections - `Array` and `ArrayList` - as a way of organizing groups of objects. Within this task, you will explore these powerful tools and understand how the static keyword fits into writing reusable code. Let's dive into the world of Collections!
 
-### 📝 Preparation 
 
-- Review the [lecture slides](https://docs.google.com/presentation/d/1qIjQ10Dy7RW00wit0Ud5vX_012pH_1chOcuvpkt03cg/edit#slide=id.p)
-- Read and answer all questions in [Module 5: Grouping Objects](https://qbl.sys.kth.se/sections/dd1337_programming/container/grouping_objects)
+### 📝 Preparation
+
+- Review the [lecture slides on Collections](https://docs.google.com/) 
+- Read and answer all questions in [Module 5: Grouping Objects](https://docs.google.com/)
 
 ### ✅ Learning Goals
-This week's learning targets include:
 
-- Working with `Arrays` and manipulating data within them
-- Understanding the usage and significance of the `static` keyword
-- Creating and managing dynamic collections using `ArrayLists`
-- Applying loops to iterate and modify collections
+This week's learning goals include:
+
+- Working with `Arrays`
+- Understanding the `static` keyword
+- Working with `ArrayLists`
+- Combining loops and collections
 
 ### 🚨 Troubleshooting Guide
-If you encounter issues while working through this task, follow these steps:
 
-1. Check the [posted issues](https://gits-15.sys.kth.se/inda-24/help/issues) for similar problems faced by others.
-2. If the issue remains unresolved, create a [New Issue](https://gits-15.sys.kth.se/inda-24/help/issues/new) and include a descriptive title starting with "Task: *your problem summary*".
-3. Engage with a TA during the [weekly lab sessions](https://queue.csc.kth.se/Queue/INDA), scheduled as per your itinerary.
+If you have any questions or problems, follow this procedure:
 
-Collaborative discussions with peers are encouraged while maintaining academic integrity—please do not share direct solutions. Similarly, use any AI tools for clarification, but ensure you are submitting your own understanding.
+1. Look at this week's [posted issues](https://gits-15.sys.kth.se/inda-24/help/issues). Are other students asking about your problem?
+2. If not, post a question yourself by creating a [New Issue](https://gits-15.sys.kth.se/inda-24/help/issues/new). Add a descriptive title, beginning with "Task *x*: *summary of problem here*"
+3. Ask a TA in person during the [weekly lab](https://queue.csc.kth.se/Queue/INDA). Check your schedule to see when the next lab is.
 
-### 🏛 Assignment Overview
+We encourage you to discuss with your course friends, **but do not share answers!** Similarly, using any AI services 🤖 can help explain things, but please do not submit AI-generated solutions - you must be both responsible for your solutions and be able to explain them under examination.
 
-In Java, arrays provide a means to store fixed-size sequential elements of the same type. On the other hand, `ArrayList` offers dynamic arrays whose size can change. This task will guide you through basic operations on arrays and introduce you to modeling mathematical sets with `ArrayLists`. Both tools are pivotal in managing and organizing data efficiently.
+### 🏛 Assignment
 
-#### 📚 Understanding Java Arrays
+In Java, working effectively with collections like `Arrays` and `ArrayLists` enhances your program's capability to manage and manipulate data collections comprehensively. 
 
-Arrays in Java are zero-indexed collections of elements. They hold elements in a contiguous block of memory, allowing for efficient access. The syntax includes square brackets and you can initialize arrays directly with values using curly braces:
+**Focus: Working with Arrays, Static Keyword, ArrayLists, Loops, and Collections.**
 
-```java
-int[] numbers = {2, 4, 6, 8}; // initializes an array with four elements
-```
+<details>
+<summary> 📚 Java Arrays and ArrayLists Overview</summary>
 
-For array manipulation, loops are handy:
+Arrays are fixed-length collections of data of the same type:
 
 ```java
-for(int number : numbers){
-    System.out.println(number);
-}
+int[] numbers = {1, 2, 3, 4, 5};
+System.out.println(numbers[0]); // Output: 1
 ```
 
-Methods operating on arrays are declared `static` for calling without instantiating objects:
+Meanwhile, `ArrayLists` offer dynamic data handling:
 
-```java
-public static int findSum(int[] array) {
-    int sum = 0;
-    for(int i : array) {
-        sum += i;
-    }
-    return sum;
-}
-```
-
------
-
-#### Exercise 1: Arrays in Action
-
-1. **Average of an Integer Array**
-   - Implement a method:
-     ```java
-     public static int average(int[] array)
-     ```
-   - Return the integer average of the array after rounding down.
-
-2. **Average of a Double Array**
-   - Implement a method:
-     ```java
-     public static double average(double[] array)
-     ```
-   - Compute the double average of the array.
-
-3. **Smallest Element**
-   - Find the smallest element in an array. Your method should return `Integer.MAX_VALUE` for an empty array.
-   - Method header:
-     ```java
-     public static int smallestElement(int[] array)
-     ```
-
-4. **Reverse Array**
-   - Implement a method that creates a reversed copy of the array without modifying the original:
-     ```java
-     public static int[] reverse(int[] array)
-     ```
-
-5. **Extract Even Numbers**
-   - Create a method to return an array with all even numbers:
-     ```java
-     public static int[] evenNumbers(int[] array)
-     ```
-
------
-
-#### 🧑‍🔧 Creating a Set with ArrayLists
-
-Mathematical sets can be effectively modeled using `ArrayLists`, ensuring only unique elements are present. The universe of this task is the set of integers from 0 to 99.
-
-Ensure to import ArrayList into your Java file:
 ```java
 import java.util.ArrayList;
+
+ArrayList<String> fruits = new ArrayList<>();
+fruits.add("Apple");
+fruits.add("Banana");
+System.out.println(fruits.get(1)); // Output: Banana
 ```
 
-#### Exercise 2: Set Theory in Java
-
-1. **Generate a Set**
-   - Define a method:
-     ```java
-     public static ArrayList<Integer> generateSet(int min, int max)
-     ```
-   - This method should return an `ArrayList` containing integers ∈ [min, max). Handle edge cases like overflows beyond 99.
-
-2. **Union of Sets**
-   - Implement:
-     ```java
-     public static ArrayList<Integer> union(ArrayList<Integer> a, ArrayList<Integer> b)
-     ```
-   - Return the union (unique elements) of both lists.
-
-3. **Intersection of Sets**
-   - Construct:
-     ```java
-     public static ArrayList<Integer> intersection(ArrayList<Integer> a, ArrayList<Integer> b)
-     ```
-   - Return elements common to both.
-
-4. **Complement of a Set**
-   - Method:
-     ```java
-     public static ArrayList<Integer> complement(ArrayList<Integer> a)
-     ```
-   - Return the complement set in the universe [{0, ..., 99}].
-
-5. **Cardinality Calculation**
-   - Create a method:
-     ```java
-     public static int cardinality(ArrayList<Integer> a)
-     ```
-   - Calculate the size of the set.
-
-6. **Cardinality of a Union**
-   - Implement:
-     ```java
-     public static int cardinalityOfUnion(ArrayList<Integer> a, ArrayList<Integer> b)
-     ```
-   - Calculate the size of the union of two sets.
+Important methods for both include iteration techniques like loops to go through all elements.
 
 ---
 
-Successful completion of these exercises will deepen your proficiency with Java collections, reinforce programming fundamentals, and sharpen problem-solving skills. Dive into these tasks, and refine your ability to manipulate and manage data structures in Java!
+#### The Static Keyword in Java
+
+Methods can be made `static`, indicating they belong to the class level rather than instances. A `static` method can be invoked without creating an instance of the class:
+
+```java
+public class MathUtil {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+}
+
+// Usage
+int sum = MathUtil.add(5, 3);
+```
+
+---
+
+</details>
+
+### Exercise 1: Calculating Array Averages
+
+**Objective**: Learn to process data within arrays and utilize loops.
+
+- **Task 1.1**: Write a static method to calculate the integer average of an `int[]` array. 
+
+  ```java
+  public static int calculateAverage(int[] numbers) {
+      // Code here
+  }
+  ```
+
+- **Task 1.2**: Implement another static method for a `double[]` array to return a precise average.
+
+  ```java
+  public static double calculateAverage(double[] numbers) {
+      // Code here
+  }
+  ```
+
+### Exercise 2: Array Manipulation with ArrayLists
+
+**Objective**: Learn to seamlessly transition between fixed and dynamic collections.
+
+- **Task 2.1**: Create a static method that takes an `int[]` array and returns an `ArrayList<Integer>` of odd numbers only.
+
+  ```java
+  public static ArrayList<Integer> filterOddNumbers(int[] array) {
+      // Code here
+  }
+  ```
+
+- **Task 2.2**: Write a method that reverses an `ArrayList` using loops and returns it. 
+
+  ```java
+  public static ArrayList<Integer> reverseList(ArrayList<Integer> list) {
+      // Code here
+  }
+  ```
+
+### Exercise 3: Synthesizing Knowledge with a Complex Problem
+
+**Objective**: Employ learned techniques to develop a utility performing complex data association.
+
+- **Task 3**: Construct a class, `CollectionUtils`, incorporating the previously created methods to offer robust data operations.
+
+  ```java
+  public class CollectionUtils {
+
+      public static int calculateAverage(int[] numbers) {
+          // Method from Task 1.1
+      }
+
+      public static double calculateAverage(double[] numbers) {
+          // Method from Task 1.2
+      }
+
+      public static ArrayList<Integer> filterOddNumbers(int[] array) {
+          // Method from Task 2.1
+      }
+
+      public static ArrayList<Integer> reverseList(ArrayList<Integer> list) {
+          // Method from Task 2.2
+      }
+  }
+  ```
+
+### Conclusion
+
+In this assignment, you have applied critical programming concepts involving arrays, arraylists, and static methods while combining iteration techniques. These exercises are crafted to solidify your understanding and improve your competency in handling Java collections.
+
+Feel free to reach out for further clarifications, and keep coding! 🌟
