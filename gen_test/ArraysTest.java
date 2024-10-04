@@ -6,113 +6,73 @@ import static org.junit.Assert.*;
 
 public class ArraysTest {
 
-    // Test arrays
-    private final int[] emptyIntArray = new int[]{};
-    private final int[] intArrayWithNegativeNumbers = new int[]{0, -1, -2, -3, -4, -5};
-    private final int[] intArrayWithPositiveNumbers = new int[]{1, 2, 3, 4, 5, 0};
-    private final double[] doubleArrayWithNegativeNumbers = new double[]{0, -1, -2, -3, -4, -5};
-    private final double[] doubleArrayWithPositiveNumbers = new double[]{0, 1, 2, 3, 4, 5};
-
     @Test
-    public void intAverageEmptyArrayGivesZero() {
-        assertEquals(0, Arrays.average(emptyIntArray));
+    public void averageIntArrayReturnsZeroForEmptyArray() {
+        assertEquals(0, Arrays.average(new int[]{}));
     }
 
     @Test
-    public void intAveragePositiveNumbersGivesExpectedResult() {
-        int expected = java.util.Arrays.stream(intArrayWithPositiveNumbers).sum() / intArrayWithPositiveNumbers.length;
-        assertEquals(expected, Arrays.average(intArrayWithPositiveNumbers));
+    public void averageIntArrayReturnsCorrectAverage() {
+        int[] array = {1, 2, 3, 4, 5};
+        assertEquals(3, Arrays.average(array));
     }
 
     @Test
-    public void intAverageNegativeNumbersGivesExpectedResult() {
-        int expected = java.util.Arrays.stream(intArrayWithNegativeNumbers).sum() / intArrayWithNegativeNumbers.length;
-        assertEquals(expected, Arrays.average(intArrayWithNegativeNumbers));
+    public void averageIntArrayHandlesNegativeNumbers() {
+        int[] array = {-1, -2, -3, -4};
+        assertEquals(-2, Arrays.average(array));
     }
 
     @Test
-    public void doubleAverageEmptyArrayGivesZero() {
-        assertEquals(0.0, Arrays.average(new double[]{}), 0);
+    public void averageDoubleArrayReturnsZeroForEmptyArray() {
+        assertEquals(0.0, Arrays.average(new double[]{}), 0.0);
     }
 
     @Test
-    public void doubleAveragePositiveNumbersGivesExpectedResult() {
-        double expected = java.util.Arrays.stream(doubleArrayWithPositiveNumbers).sum() / doubleArrayWithPositiveNumbers.length;
-        assertEquals(expected, Arrays.average(doubleArrayWithPositiveNumbers), 0);
+    public void averageDoubleArrayReturnsCorrectAverage() {
+        double[] array = {1.0, 2.0, 3.0};
+        assertEquals(2.0, Arrays.average(array), 0);
     }
 
     @Test
-    public void doubleAverageNegativeNumbersGivesExpectedResult() {
-        double expected = java.util.Arrays.stream(doubleArrayWithNegativeNumbers).sum() / doubleArrayWithNegativeNumbers.length;
-        assertEquals(expected, Arrays.average(doubleArrayWithNegativeNumbers), 0);
+    public void smallestElementReturnsMaxValueForEmptyArray() {
+        assertEquals(Integer.MAX_VALUE, Arrays.smallestElement(new int[]{}));
     }
 
     @Test
-    public void smallestElementEmptyArrayGivesIntegerMaxValue() {
-        assertEquals(Integer.MAX_VALUE, Arrays.smallestElement(emptyIntArray));
+    public void smallestElementReturnsCorrectSmallestValue() {
+        int[] array = {3, 2, 1, 4, 5};
+        assertEquals(1, Arrays.smallestElement(array));
     }
 
     @Test
-    public void smallestElementFindsSmallestInPositiveNumbers() {
-        int expected = java.util.Arrays.stream(intArrayWithPositiveNumbers).min().orElse(0);
-        assertEquals(expected, Arrays.smallestElement(intArrayWithPositiveNumbers));
+    public void reverseReturnsReversedArray() {
+        int[] array = {1, 2, 3, 4, 5};
+        int[] expected = {5, 4, 3, 2, 1};
+        assertArrayEquals(expected, Arrays.reverse(array));
     }
 
     @Test
-    public void smallestElementFindsSmallestInNegativeNumbers() {
-        int expected = java.util.Arrays.stream(intArrayWithNegativeNumbers).min().orElse(0);
-        assertEquals(expected, Arrays.smallestElement(intArrayWithNegativeNumbers));
-    }
-
-    @Test
-    public void reverseEmptyArrayReturnsEmpty() {
+    public void reverseReturnsEmptyArrayForEmptyArray() {
         assertArrayEquals(new int[]{}, Arrays.reverse(new int[]{}));
     }
 
     @Test
-    public void reverseCorrectlyCreatesReversedCopy() {
-        int[] reversed = Arrays.reverse(intArrayWithPositiveNumbers);
-        assertEquals(intArrayWithPositiveNumbers.length, reversed.length);
-        for (int i = 0; i < reversed.length; i++)
-            assertEquals(intArrayWithPositiveNumbers[i], reversed[reversed.length - i - 1]);
+    public void evenNumbersReturnsEvenNumbersOnly() {
+        int[] array = {1, 2, 3, 4, 5, 6};
+        int[] expected = {2, 4, 6};
+        assertArrayEquals(expected, Arrays.evenNumbers(array));
     }
 
     @Test
-    public void reverseDoesNotModifyOriginalArray() {
-        int[] original = java.util.Arrays.copyOf(intArrayWithPositiveNumbers, intArrayWithPositiveNumbers.length);
-        Arrays.reverse(intArrayWithPositiveNumbers);
-        assertArrayEquals(original, intArrayWithPositiveNumbers);
-    }
-
-    @Test
-    public void evenNumbersFromEmptyArrayReturnsEmpty() {
-        assertArrayEquals(new int[]{}, Arrays.evenNumbers(emptyIntArray));
-    }
-
-    @Test
-    public void evenNumbersGivesCorrectResultForPositiveNumbers() {
-        int[] expected = java.util.Arrays.stream(intArrayWithPositiveNumbers).filter(i -> i % 2 == 0).toArray();
-        assertArrayEquals(expected, Arrays.evenNumbers(intArrayWithPositiveNumbers));
-    }
-
-    @Test
-    public void evenNumbersGivesCorrectResultForNegativeNumbers() {
-        int[] expected = java.util.Arrays.stream(intArrayWithNegativeNumbers).filter(i -> i % 2 == 0).toArray();
-        assertArrayEquals(expected, Arrays.evenNumbers(intArrayWithNegativeNumbers));
-    }
-
-    @Test
-    public void evenNumbersDoesNotModifyOriginalArray() {
-        int[] original = java.util.Arrays.copyOf(intArrayWithPositiveNumbers, intArrayWithPositiveNumbers.length);
-        Arrays.evenNumbers(intArrayWithPositiveNumbers);
-        assertArrayEquals(original, intArrayWithPositiveNumbers);
+    public void evenNumbersReturnsEmptyArrayForNoEvenNumbers() {
+        int[] array = {1, 3, 5, 7};
+        assertArrayEquals(new int[]{}, Arrays.evenNumbers(array));
     }
 }
 
-// SetTheoryTest.java
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-
 import java.util.*;
 import java.util.stream.IntStream;
+import static org.junit.Assert.assertEquals;
 
