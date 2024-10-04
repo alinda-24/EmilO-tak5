@@ -48,6 +48,8 @@ public class Arrays {
   }
 
   public static void main(String[] args) {
+    System.out.println("Hello");
+
     int[] intArray = { 1, 2, 3, 4 };
     double[] doubleArray = { 1.0, 2.0, 3.0, 4.0 };
     int[] array = { 31, 6, 8, 12, 20, 25, 23, 10 };
