@@ -15,13 +15,7 @@ public class SetTheory {
      * @return An ArrayList of integers in the specified range
      */
     public static ArrayList<Integer> generateSet(int min, int max) {
-        ArrayList<Integer> set = new ArrayList<Integer>();
-
-        for (int i = min; i < max && i < MAX; i++) {
-            set.add(i);
-        }
-
-        return set;
+        // TODO: Implement this method.
     }
 
     /**
@@ -32,16 +26,7 @@ public class SetTheory {
      * @return An ArrayList containing unique elements from both sets
      */
     public static ArrayList<Integer> union(ArrayList<Integer> a, ArrayList<Integer> b) {
-        ArrayList<Integer> set = new ArrayList<Integer>();
-        
-        set.addAll(a);
-        for (Integer i : b) {
-            if(!a.contains(i)){
-                set.add(i);
-            }
-        } 
-
-        return set;
+        // TODO: Implement this method.
     }
 
     /**
@@ -52,15 +37,7 @@ public class SetTheory {
      * @return An ArrayList containing elements present in both sets
      */
     public static ArrayList<Integer> intersection(ArrayList<Integer> a, ArrayList<Integer> b) {
-        ArrayList<Integer> set = new ArrayList<Integer>();
-
-        for (Integer i : a) {
-            if (b.contains(i)) {
-                set.add(i);
-            }
-        }
-
-        return set;
+        // TODO: Implement this method.
     }
 
     /**
@@ -70,11 +47,7 @@ public class SetTheory {
      * @return An ArrayList representing the complement set
      */
     public static ArrayList<Integer> complement(ArrayList<Integer> a) {
-        ArrayList<Integer> set = generateSet(0, MAX);
-
-        set.removeAll(a);
-
-        return set;
+        // TODO: Implement this method.
     }
 
     /**
@@ -84,7 +57,7 @@ public class SetTheory {
      * @return The size of the set
      */
     public static int cardinality(ArrayList<Integer> a) {
-        return a.size();
+        // TODO: Implement this method.
     }
 
     /**
@@ -95,6 +68,6 @@ public class SetTheory {
      * @return The size of the union of the two sets
      */
     public static int cardinalityOfUnion(ArrayList<Integer> a, ArrayList<Integer> b) {
-        return union(a, b).size();
+        // TODO: Implement this method.
     }
 }
